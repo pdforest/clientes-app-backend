@@ -37,7 +37,7 @@ import com.pdforest.springboot.backend.apirest.models.entity.Region;
 import com.pdforest.springboot.backend.apirest.models.services.IClienteService;
 import com.pdforest.springboot.backend.apirest.models.services.IUploadFileService;
 
-@CrossOrigin(origins = { "http://localhost:4200" })
+@CrossOrigin(origins = { "http://localhost:4200", "*.herokuapp.com"})
 @RestController
 @RequestMapping("/api")
 public class ClienteRestController {
