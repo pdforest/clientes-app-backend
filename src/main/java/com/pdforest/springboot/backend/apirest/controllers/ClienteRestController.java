@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.pdforest.springboot.backend.apirest.models.entity.Cliente;
+import com.pdforest.springboot.backend.apirest.models.entity.Region;
 import com.pdforest.springboot.backend.apirest.models.services.IClienteService;
 import com.pdforest.springboot.backend.apirest.models.services.IUploadFileService;
 
@@ -154,6 +155,7 @@ public class ClienteRestController {
 			actual.setApellido(cliente.getApellido());
 			actual.setEmail(cliente.getEmail());
 			actual.setCreateAt(cliente.getCreateAt());
+			actual.setRegion(cliente.getRegion());
 			
 			clienteService.save(actual);
 			
@@ -244,4 +246,8 @@ public class ClienteRestController {
 		return new ResponseEntity<Resource>(recurso, cabecera, HttpStatus.OK);
 	}
 	
+	@GetMapping("/clientes/regiones")
+	public List<Region> listarRegiones(){
+		return clienteService.findAllRegiones();
+	}
 }
